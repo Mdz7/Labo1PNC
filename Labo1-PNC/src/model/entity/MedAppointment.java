@@ -4,18 +4,58 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class MedAppointment {
+    private String drName;
+    private String drId;
+    private String ptName;
+    private String ptDui;
     private String Specialty;
-    private String PatientDui;
     private LocalDate Date;
     private LocalTime Time;
-    private boolean Attendace;
+    private boolean Attendance;
 
-    public MedAppointment(String specialty, String patientDui, LocalDate date, LocalTime time, boolean attendace) {
+    public MedAppointment() {}
+
+    public MedAppointment(String drName, String drId, String ptDui, String ptName, String specialty, LocalDate date, LocalTime time, boolean attendance) {
+        this.drName = drName;
+        this.drId = drId;
+        this.ptDui = ptDui;
+        this.ptName = ptName;
         this.Specialty = specialty;
-        this.PatientDui = patientDui;
         this.Date = date;
         this.Time = time;
-        this.Attendace = attendace;
+        this.Attendance = attendance;
+    }
+
+    public String getDrName() {
+        return drName;
+    }
+
+    public void setDrName(String drName) {
+        this.drName = drName;
+    }
+
+    public String getDrId() {
+        return drId;
+    }
+
+    public void setDrId(String drId) {
+        this.drId = drId;
+    }
+
+    public String getPtName() {
+        return ptName;
+    }
+
+    public void setPtName(String ptName) {
+        this.ptName = ptName;
+    }
+
+    public String getPtDui() {
+        return ptDui;
+    }
+
+    public void setPtDui(String ptDui) {
+        this.ptDui = ptDui;
     }
 
     public String getSpecialty() {
@@ -23,15 +63,7 @@ public class MedAppointment {
     }
 
     public void setSpecialty(String specialty) {
-        this.Specialty = specialty;
-    }
-
-    public String getPatientDui() {
-        return PatientDui;
-    }
-
-    public void setPatientDui(String patientDui) {
-        this.PatientDui = patientDui;
+        Specialty = specialty;
     }
 
     public LocalDate getDate() {
@@ -39,7 +71,7 @@ public class MedAppointment {
     }
 
     public void setDate(LocalDate date) {
-        this.Date = date;
+        Date = date;
     }
 
     public LocalTime getTime() {
@@ -47,14 +79,14 @@ public class MedAppointment {
     }
 
     public void setTime(LocalTime time) {
-        this.Time = time;
+        Time = time;
     }
 
-    public boolean isAttendace() {
-        return Attendace;
+    public boolean isAttendance() {
+        return Attendance;
     }
 
-    public void setAttendace(boolean attendace) {
-        this.Attendace = attendace;
+    public void setAttendance(boolean attendance) {
+        Attendance = attendance;
     }
 }
