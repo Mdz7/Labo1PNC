@@ -8,13 +8,8 @@ public class Patient {
     private LocalDate BirthDate;
     private String DUI;
 
-    public Patient(String firstName, String lastName, LocalDate birthDate, String dui) {
-        this.FirstName = firstName;
-        this.LastName = lastName;
-        this.BirthDate = birthDate;
-        this.DUI = dui;
+    public Patient() {
     }
-
 
     public String getFirstName() {
         return FirstName;

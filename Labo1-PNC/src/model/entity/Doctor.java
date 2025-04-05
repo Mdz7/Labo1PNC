@@ -7,11 +7,8 @@ public class Doctor extends Patient {
     private LocalDate Recruitment;
     private String Doctorid;
 
-    public Doctor(String firstName, String lastName, LocalDate birthDate, String dui, String specialty) {
-        super(firstName, lastName, birthDate, dui);
-        this.Specialty = specialty;
+    public Doctor() {
     }
-
 
     public String getSpecialty() {
             return Specialty;
