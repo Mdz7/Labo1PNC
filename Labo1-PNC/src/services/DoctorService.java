@@ -37,4 +37,9 @@ public class DoctorService {
                 .filter(doctor -> doctor.getSpecialty().equalsIgnoreCase(specialty))
                 .collect(Collectors.toList());
     }
+
+    public Doctor getDoctorById(String id) {
+        return doctorList.stream().filter(doctor -> doctor.getDoctorid().equals(id))
+                .findFirst().orElse(null);
+    }
 }

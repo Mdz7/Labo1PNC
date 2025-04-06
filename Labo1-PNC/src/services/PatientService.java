@@ -18,6 +18,11 @@ public class PatientService {
         patientList.add(patient);
     }
 
+    public Patient getPatientById(String dui) {
+        return patientList.stream().filter(pt -> pt.getDUI().equals(dui))
+                .findFirst().orElse(null);
+    }
+
     private int calcAge(LocalDate birthDate) {
         return Period.between(birthDate, LocalDate.now()).getYears();
     }
