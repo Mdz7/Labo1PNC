@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PatientService {
-    private final List<Patient> patientList = new ArrayList<>();
+    private static final List<Patient> patientList = new ArrayList<>();
 
     public void addPatient(Patient patient) {
         int age = calcAge(patient.getBirthDate());
@@ -16,6 +16,11 @@ public class PatientService {
         }
 
         patientList.add(patient);
+    }
+
+    public Patient getPatientById(String dui) {
+        return patientList.stream().filter(pt -> pt.getDUI().equals(dui))
+                .findFirst().orElse(null);
     }
 
     private int calcAge(LocalDate birthDate) {

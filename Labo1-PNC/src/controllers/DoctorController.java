@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class DoctorController {
 
-    private final DoctorService service = new DoctorService();
+    protected final DoctorService service = new DoctorService();
     private final Scanner sc = new Scanner(System.in);
     private final PrintDr printer = new PrintDr();
 
@@ -56,4 +56,5 @@ public class DoctorController {
             }
         }
     }
+
 }

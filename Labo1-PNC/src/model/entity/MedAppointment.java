@@ -13,15 +13,16 @@ public class MedAppointment {
     private String Specialty;
     private LocalDate Date;
     private LocalTime Time;
-    private boolean Attendance;
 
-    public MedAppointment() {}
+    public MedAppointment() {
+
+    }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId() {
         this.id = _numberAppointment++;
     }
 
@@ -79,13 +80,5 @@ public class MedAppointment {
 
     public void setTime(LocalTime time) {
         Time = time;
-    }
-
-    public boolean isAttendance() {
-        return Attendance;
-    }
-
-    public void setAttendance(boolean attendance) {
-        Attendance = attendance;
     }
 }
