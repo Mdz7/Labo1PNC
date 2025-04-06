@@ -12,13 +12,13 @@ public class CollectData {
     public final DateTimeFormat formatter = new DateTimeFormat();
 
     public void basicInformation(Patient patient) {
-        System.out.print("Enter Name: ");
+        System.out.print("Ingresa el nombre: ");
         patient.setFirstName(sc.nextLine());
-        System.out.print("Enter Last Name: ");
+        System.out.print("Ingresa el apellido: ");
         patient.setLastName(sc.nextLine());
-        System.out.print("Enter Birth Date: ");
+        System.out.print("Ingresa la fecha de nacimiento: ");
         patient.setBirthDate(LocalDate.parse(sc.nextLine(), formatter.setDateFormat()));
-        System.out.print("Enter DUI: ");
+        System.out.print("Ingresa el DUI: ");
         patient.setDUI(sc.nextLine());
     }
 }

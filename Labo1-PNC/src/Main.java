@@ -18,11 +18,12 @@ public class Main {
 
         while (flag) {
 
-            System.out.println("Select an option:");
-            System.out.println("1. Doctors");
-            System.out.println("2. Patients");
-            System.out.println("3. Appointments");
-            System.out.println("4. Exit");
+            System.out.println(" ");
+            System.out.println("1. Doctores");
+            System.out.println("2. Pacientes");
+            System.out.println("3. Citas");
+            System.out.println("4. Salir");
+            System.out.print("Selecciona una opcion: ");
             option = scanner.nextInt();
             scanner.nextLine();
 

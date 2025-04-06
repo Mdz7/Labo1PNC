@@ -2,30 +2,34 @@ package controllers;
 
 import model.entity.MedAppointment;
 import services.MedAppointmentService;
-import utils.Appointment.PrintAp;
 import utils.Collectors.CollectApData;
 import utils.Format.DateTimeFormat;
+import utils.Printers.PrintAp;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class MedAppointmentController {
 
     private final MedAppointmentService service = new MedAppointmentService();
-    private final Scanner sc = new Scanner(System.in);
     private final DateTimeFormat formatter = new DateTimeFormat();
-    private final PrintAp showAp = new PrintAp();
+    private final PrintAp printer = new PrintAp();
+    private final Scanner sc = new Scanner(System.in);
 
     public void appointmentArea(){
         boolean flag = true;
         boolean apFlag;
 
         while (flag){
-            System.out.println("1. Add appointment");
-            System.out.println("2. See all appointments");
-            System.out.println("3. Search appointment by date");
-            System.out.println("4. Search appointment by Doctor Id");
-            System.out.println("5. Search by day with more appointments");
-            System.out.println("6. Exit");
+            System.out.println(" ");
+            System.out.println("1. Agregar cita");
+            System.out.println("2. Ver todas las citas");
+            System.out.println("3. Buscar cita por fecha");
+            System.out.println("4. Filtrar cita por ID de doctor");
+            System.out.println("5. Fecha con mas citas");
+            System.out.println("6. Eliminar cita");
+            System.out.println("7. Salir");
+            System.out.print("Selecciona una opcion: ");
 
             switch (sc.nextInt()){
                 case 1:
@@ -41,32 +45,48 @@ public class MedAppointmentController {
                     }
 
                     if (apFlag){
-                        System.out.println("cita agendada");
+                        printer.printAppointment(ap);
+                    }else{
+                        printer.printErrorAppointment();
                     }
                     break;
                 case 2:
                     sc.nextLine();
                     for (MedAppointment _ap : service.getAllAppointments()){
-                        showAp.printAppointment(_ap);
+                        printer.printAppointment(_ap);
                     }
                     break;
                 case 3:
                     sc.nextLine();
-                    System.out.println("Enter Date: ");
+                    System.out.println("Ingresa la fecha: ");
                     for (MedAppointment _ap :
                            service.getAppointmentListByDate(LocalDate.parse(sc.nextLine(), formatter.setDateFormat()))){
-                        showAp.printAppointment(_ap);
+                        printer.printAppointment(_ap);
                     }
                     break;
                 case 4:
                     sc.nextLine();
-                    System.out.println("Enter Dr ID: ");
+                    System.out.println("Ingresa el Id del Doctor: ");
                     for (MedAppointment _ap : service.getAppointmentListByDrId(sc.nextLine())){
-                        showAp.printAppointment(_ap);
+                        printer.printAppointment(_ap);
                     }
                     break;
                 case 5:
+                    sc.nextLine();
                     System.out.println(service.getDateWithMostAppointment());
+                    break;
+                case 6:
+                    sc.nextLine();
+                    System.out.println("Ingresa la fecha: ");
+                    LocalDate dateToDelete = LocalDate.parse(sc.nextLine(), formatter.setDateFormat());
+                    System.out.println("Ingresa la hora: ");
+                    LocalTime timeToDelete = LocalTime.parse(sc.nextLine(), formatter.setTimeFormat());
+
+                    if (service.deleteAppointment(dateToDelete, timeToDelete)){
+                        System.out.println("cita eliminada debido a ausencia");
+                    }else{
+                        System.out.println("No se puede eliminar cita");
+                    }
                     break;
                 default:
                     flag = false;
@@ -74,5 +94,4 @@ public class MedAppointmentController {
             }
         }
     }
-
 }

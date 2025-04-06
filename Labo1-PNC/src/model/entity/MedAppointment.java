@@ -15,17 +15,6 @@ public class MedAppointment {
 
     public MedAppointment() {}
 
-    public MedAppointment(String drName, String drId, String ptDui, String ptName, String specialty, LocalDate date, LocalTime time, boolean attendance) {
-        this.drName = drName;
-        this.drId = drId;
-        this.ptDui = ptDui;
-        this.ptName = ptName;
-        this.Specialty = specialty;
-        this.Date = date;
-        this.Time = time;
-        this.Attendance = attendance;
-    }
-
     public String getDrName() {
         return drName;
     }

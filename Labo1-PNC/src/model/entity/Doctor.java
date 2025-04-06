@@ -11,26 +11,26 @@ public class Doctor extends Patient {
     }
 
     public String getSpecialty() {
-            return Specialty;
-        }
+        return Specialty;
+    }
 
-        public void setSpecialty(String specialty) {
-            this.Specialty = specialty;
-        }
+    public void setSpecialty(String specialty) {
+        this.Specialty = specialty;
+    }
 
-        public LocalDate getRecruitment() {
-            return Recruitment;
-        }
+    public LocalDate getRecruitment() {
+        return Recruitment;
+    }
 
-        public void setRecruitment(LocalDate recruitment) {
-                this.Recruitment = recruitment;
-        }
+    public void setRecruitment() {
+        this.Recruitment = LocalDate.now();
+    }
 
-        public String getDoctorid() {
-            return Doctorid;
-        }
+    public String getDoctorid() {
+        return Doctorid;
+    }
 
-        public void setDoctorid(String doctorid) {
-            this.Doctorid = doctorid;
-        }
+    public void setDoctorid(String doctorid) {
+        this.Doctorid = doctorid;
+    }
 }
