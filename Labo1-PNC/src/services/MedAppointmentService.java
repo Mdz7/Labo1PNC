@@ -4,6 +4,7 @@ import model.entity.MedAppointment;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -15,7 +16,23 @@ public class MedAppointmentService {
 
     private final List<MedAppointment> appointmentList = new ArrayList<>();
 
-    public boolean scheduleTodayAppointment(MedAppointment ap) {
+    public void scheduleTodayAppointment(MedAppointment ap) {
+
+        if (appointmentList.isEmpty() || appointmentList.stream().noneMatch(
+                _ap -> _ap.getDate().equals(today))) {
+
+            ap.setTime(LocalTime.of(8,0));
+            appointmentList.add(ap);
+            appointmentList.sort(Comparator.comparing(MedAppointment::getDate).thenComparing(MedAppointment::getTime));
+        }else{
+            LocalTime lastTime = getAppointmentListByDate(ap.getDate()).getLast().getTime();
+            ap.setTime(lastTime.plusHours(1));
+            appointmentList.add(ap);
+            appointmentList.sort(Comparator.comparing(MedAppointment::getDate).thenComparing(MedAppointment::getTime));
+        }
+    }
+
+    public boolean scheduleFutureAppointment(MedAppointment ap) {
         for (MedAppointment appointment : appointmentList) {
 
             if (appointment.getPtDui().equals(ap.getPtDui())
@@ -27,8 +44,7 @@ public class MedAppointmentService {
             if (appointment.getSpecialty().equalsIgnoreCase(ap.getSpecialty())
                         && appointment.getDate().equals(ap.getDate())
                         && appointment.getTime().equals(ap.getTime())
-                        && appointment.getDrId().equals(ap.getDrId())
-            ) {
+                        && appointment.getDrId().equals(ap.getDrId())) {
                     return false;
             }
 
@@ -39,29 +55,6 @@ public class MedAppointmentService {
 
         appointmentList.add(ap);
         return true;
-    }
-
-    public boolean scheduleFutureAppointment(MedAppointment ap) {
-
-        if (appointmentList.isEmpty()) {
-            ap.setTime(LocalTime.of(8,0));
-            appointmentList.add(ap);
-            return true;
-        }else{
-
-            if (appointmentList.getLast().getDate().isEqual(today)){;
-                appointmentList.add(ap);
-                return true;
-            }
-
-            if(appointmentList.getLast().getTime().isBefore(endTime)){
-                ap.setTime(appointmentList.getLast().getTime().plusHours(1));
-                appointmentList.add(ap);
-                return true;
-            }else{
-                return false;
-            }
-        }
     }
 
     public List<MedAppointment> getAllAppointments() {
@@ -89,7 +82,7 @@ public class MedAppointmentService {
                 .map(Map.Entry::getKey).orElse(today);
     }
 
-    public boolean deleteAppointment(LocalDate date, LocalTime time) {
-        return appointmentList.removeIf(ap -> ap.getDate().equals(date) && ap.getTime().equals(time));
+    public boolean deleteAppointment(int idAppointment) {
+        return appointmentList.removeIf(ap -> ap.getId() == idAppointment);
     }
 }

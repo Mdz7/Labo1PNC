@@ -35,7 +35,7 @@ public class Main {
                     ptController.patientArea();
                     break;
                 case 3:
-                    apController.appointmentArea();
+                    apController.appointmentArea(drController, ptController);
                     break;
                 default:
                     flag = false;

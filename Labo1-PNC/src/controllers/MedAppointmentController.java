@@ -16,9 +16,9 @@ public class MedAppointmentController {
     private final PrintAp printer = new PrintAp();
     private final Scanner sc = new Scanner(System.in);
 
-    public void appointmentArea(){
+    public void appointmentArea(DoctorController dr, PatientController pt){
         boolean flag = true;
-        boolean apFlag;
+        boolean apFlag = true;
 
         while (flag){
             System.out.println(" ");
@@ -36,10 +36,10 @@ public class MedAppointmentController {
                     sc.nextLine();
                     MedAppointment ap = new MedAppointment();
                     CollectApData collectAp = new CollectApData();
-                    collectAp.basicApInformation(ap);
+                    collectAp.basicApInformation(ap, dr.service, pt.service);
 
                     if (ap.getDate().isEqual(LocalDate.now())){
-                        apFlag = service.scheduleTodayAppointment(ap);
+                        service.scheduleTodayAppointment(ap);
                     }else{
                         apFlag = service.scheduleFutureAppointment(ap);
                     }
@@ -77,12 +77,9 @@ public class MedAppointmentController {
                     break;
                 case 6:
                     sc.nextLine();
-                    System.out.println("Ingresa la fecha: ");
-                    LocalDate dateToDelete = LocalDate.parse(sc.nextLine(), formatter.setDateFormat());
-                    System.out.println("Ingresa la hora: ");
-                    LocalTime timeToDelete = LocalTime.parse(sc.nextLine(), formatter.setTimeFormat());
+                    System.out.println("Ingresa el ID de la cita: ");
 
-                    if (service.deleteAppointment(dateToDelete, timeToDelete)){
+                    if (service.deleteAppointment(Integer.parseInt(sc.nextLine()))){
                         System.out.println("cita eliminada debido a ausencia");
                     }else{
                         System.out.println("No se puede eliminar cita");

@@ -6,6 +6,7 @@ public class PrintAp {
 
     public void printAppointment (MedAppointment ap) {
         System.out.println("-------------------------------------------");
+        System.out.println("ID: " + ap.getId());
         System.out.println("Dr: " + ap.getDrName() + " Especialidad: "+ ap.getSpecialty());
         System.out.println("Paciente: " + ap.getPtName());
         System.out.println("Fecha: " + ap.getDate() + " Hora: " + ap.getTime());
