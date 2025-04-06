@@ -77,12 +77,9 @@ public class MedAppointmentController {
                     break;
                 case 6:
                     sc.nextLine();
-                    System.out.println("Ingresa la fecha: ");
-                    LocalDate dateToDelete = LocalDate.parse(sc.nextLine(), formatter.setDateFormat());
-                    System.out.println("Ingresa la hora: ");
-                    LocalTime timeToDelete = LocalTime.parse(sc.nextLine(), formatter.setTimeFormat());
+                    System.out.println("Ingresa el ID de la cita: ");
 
-                    if (service.deleteAppointment(dateToDelete, timeToDelete)){
+                    if (service.deleteAppointment(Integer.parseInt(sc.nextLine()))){
                         System.out.println("cita eliminada debido a ausencia");
                     }else{
                         System.out.println("No se puede eliminar cita");
