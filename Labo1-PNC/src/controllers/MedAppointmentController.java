@@ -16,9 +16,9 @@ public class MedAppointmentController {
     private final PrintAp printer = new PrintAp();
     private final Scanner sc = new Scanner(System.in);
 
-    public void appointmentArea(){
+    public void appointmentArea(DoctorController dr, PatientController pt){
         boolean flag = true;
-        boolean apFlag;
+        boolean apFlag = true;
 
         while (flag){
             System.out.println(" ");
@@ -36,10 +36,10 @@ public class MedAppointmentController {
                     sc.nextLine();
                     MedAppointment ap = new MedAppointment();
                     CollectApData collectAp = new CollectApData();
-                    collectAp.basicApInformation(ap);
+                    collectAp.basicApInformation(ap, dr.service, pt.service);
 
                     if (ap.getDate().isEqual(LocalDate.now())){
-                        apFlag = service.scheduleTodayAppointment(ap);
+                        service.scheduleTodayAppointment(ap);
                     }else{
                         apFlag = service.scheduleFutureAppointment(ap);
                     }

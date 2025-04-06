@@ -4,6 +4,7 @@ import model.entity.MedAppointment;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -15,23 +16,19 @@ public class MedAppointmentService {
 
     private final List<MedAppointment> appointmentList = new ArrayList<>();
 
-    public boolean scheduleTodayAppointment(MedAppointment ap) {
+    public void scheduleTodayAppointment(MedAppointment ap) {
 
-        if (appointmentList.isEmpty()) {
+        if (appointmentList.isEmpty() || appointmentList.stream().noneMatch(
+                _ap -> _ap.getDate().equals(today))) {
+
             ap.setTime(LocalTime.of(8,0));
             appointmentList.add(ap);
-            return true;
+            appointmentList.sort(Comparator.comparing(MedAppointment::getDate).thenComparing(MedAppointment::getTime));
         }else{
-            for (MedAppointment _ap : appointmentList) {
-                if (_ap.getTime() == null && _ap.getTime().isBefore(endTime)) {
-                    int previous = appointmentList.indexOf(_ap) - 1;
-                    ap.setTime(appointmentList.get(previous).getTime().plusHours(1));
-                    appointmentList.add(ap);
-                    return true;
-                }
-            }
-
-            return false;
+            LocalTime lastTime = getAppointmentListByDate(ap.getDate()).getLast().getTime();
+            ap.setTime(lastTime.plusHours(1));
+            appointmentList.add(ap);
+            appointmentList.sort(Comparator.comparing(MedAppointment::getDate).thenComparing(MedAppointment::getTime));
         }
     }
 

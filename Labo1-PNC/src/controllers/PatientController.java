@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class PatientController {
 
-    private final PatientService service = new PatientService();
+    protected final PatientService service = new PatientService();
     private final PrintPt printer = new PrintPt();
     private final Scanner sc = new Scanner(System.in);
 

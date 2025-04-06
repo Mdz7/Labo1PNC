@@ -8,13 +8,6 @@ public class DoctorService {
     private final List<Doctor> doctorList = new ArrayList<>();
     private final Random random = new Random();
 
-    public void addDoctor(Doctor doctor) {
-        String generatedId = generateDoctorId();
-        doctor.setDoctorid(generatedId);
-        doctor.setRecruitment();
-        doctorList.add(doctor);
-    }
-
     private String generateDoctorId() {
         return "ZNH-" +
                 generateRandomL() + generateRandomN() + generateRandomL() + "-MD-" + generateRandomL() + generateRandomN();
@@ -28,6 +21,13 @@ public class DoctorService {
         return random.nextInt(10);
     }
 
+    public void addDoctor(Doctor doctor) {
+        String generatedId = generateDoctorId();
+        doctor.setID(generatedId);
+        doctor.setRecruitment();
+        doctorList.add(doctor);
+    }
+
     public List<Doctor> getAllDoctors() {
         return doctorList;
     }
@@ -39,7 +39,7 @@ public class DoctorService {
     }
 
     public Doctor getDoctorById(String id) {
-        return doctorList.stream().filter(doctor -> doctor.getDoctorid().equals(id))
+        return doctorList.stream().filter(doctor -> doctor.getID().equals(id))
                 .findFirst().orElse(null);
     }
 }

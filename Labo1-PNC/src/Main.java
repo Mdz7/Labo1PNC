@@ -18,8 +18,6 @@ public class Main {
 
         while (flag) {
 
-            //Agregar id a cita para eliminarlo
-
             System.out.println(" ");
             System.out.println("1. Doctores");
             System.out.println("2. Pacientes");
@@ -37,7 +35,7 @@ public class Main {
                     ptController.patientArea();
                     break;
                 case 3:
-                    apController.appointmentArea();
+                    apController.appointmentArea(drController, ptController);
                     break;
                 default:
                     flag = false;

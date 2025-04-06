@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PatientService {
-    private final List<Patient> patientList = new ArrayList<>();
+    private static final List<Patient> patientList = new ArrayList<>();
 
     public void addPatient(Patient patient) {
         int age = calcAge(patient.getBirthDate());

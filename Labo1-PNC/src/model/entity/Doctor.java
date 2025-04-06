@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Doctor extends Patient {
     private String Specialty;
     private LocalDate Recruitment;
-    private String Doctorid;
+    private String ID;
 
     public Doctor() {
     }
@@ -26,11 +26,11 @@ public class Doctor extends Patient {
         this.Recruitment = LocalDate.now();
     }
 
-    public String getDoctorid() {
-        return Doctorid;
+    public String getID() {
+        return ID;
     }
 
-    public void setDoctorid(String doctorid) {
-        this.Doctorid = doctorid;
+    public void setID(String ID) {
+        this.ID = ID;
     }
 }
