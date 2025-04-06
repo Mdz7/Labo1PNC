@@ -5,22 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03897359-4ba7-496c-a148-7f1effcb0024" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/utils/Printers/PrintDr.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/Printers/PrintPt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/DoctorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/MedAppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/MedAppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Doctor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/entity/MedAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/MedAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DoctorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/MedAppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/MedAppointmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PatientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Appointment/PrintAp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Printers/PrintAp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Collectors/CollectApData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Collectors/CollectApData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Collectors/CollectData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Collectors/CollectData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Collectors/CollectDrData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Collectors/CollectDrData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Printers/PrintAp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Printers/PrintAp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +89,8 @@
       <workItem from="1743868462622" duration="1761000" />
       <workItem from="1743870249373" duration="418000" />
       <workItem from="1743888088704" duration="5196000" />
-      <workItem from="1743908179034" duration="5389000" />
+      <workItem from="1743908179034" duration="5796000" />
+      <workItem from="1743915409256" duration="4268000" />
     </task>
     <servers />
   </component>

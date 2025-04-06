@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class MedAppointment {
+    private static int _numberAppointment = 0;
+    private int id;
     private String drName;
     private String drId;
     private String ptName;
@@ -14,6 +16,14 @@ public class MedAppointment {
     private boolean Attendance;
 
     public MedAppointment() {}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = _numberAppointment++;
+    }
 
     public String getDrName() {
         return drName;

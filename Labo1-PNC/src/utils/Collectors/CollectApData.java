@@ -20,7 +20,7 @@ public class CollectApData extends CollectData {
         ap.setSpecialty(sc.nextLine());
         System.out.print("Ingresa fecha: ");
         ap.setDate(LocalDate.parse(sc.nextLine(), formatter.setDateFormat()));
-        if (ap.getDate().isEqual(LocalDate.now())) {
+        if (!(ap.getDate().isEqual(LocalDate.now()))) {
             System.out.print("Ingresa hora: ");
             ap.setTime(LocalTime.parse(sc.nextLine(), formatter.setTimeFormat()));
         }
