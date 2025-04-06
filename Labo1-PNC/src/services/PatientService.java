@@ -1,7 +1,6 @@
 package services;
 
 import model.entity.Patient;
-
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ public class PatientService {
         }
 
         patientList.add(patient);
-        System.out.println("paciente agregado, nombre: " + patient.getFirstName() + " " + patient.getLastName());
     }
 
     private int calcAge(LocalDate birthDate) {

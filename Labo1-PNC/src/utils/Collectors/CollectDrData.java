@@ -5,7 +5,7 @@ import model.entity.Doctor;
 public class CollectDrData extends CollectData {
 
     public void specialtyCollector(Doctor doctor) {
-        System.out.print("Enter Specialty: ");
+        System.out.print("Ingresa especialidad: ");
         doctor.setSpecialty(sc.nextLine());
     }
 

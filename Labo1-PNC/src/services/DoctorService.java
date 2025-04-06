@@ -1,7 +1,6 @@
 package services;
 
 import model.entity.Doctor;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -12,8 +11,8 @@ public class DoctorService {
     public void addDoctor(Doctor doctor) {
         String generatedId = generateDoctorId();
         doctor.setDoctorid(generatedId);
+        doctor.setRecruitment();
         doctorList.add(doctor);
-        System.out.println("Doctor agregado, el ID del doctor es: " + generatedId);
     }
 
     private String generateDoctorId() {
@@ -27,11 +26,6 @@ public class DoctorService {
 
     private int generateRandomN() {
         return random.nextInt(10);
-    }
-
-    public Map<String, List<Doctor>> groupBySpecialty() {
-        return doctorList.stream()
-                .collect(Collectors.groupingBy(Doctor::getSpecialty));
     }
 
     public List<Doctor> getAllDoctors() {
