@@ -39,7 +39,7 @@ public class MedAppointmentController {
                     collectAp.basicApInformation(ap, dr.service, pt.service);
 
                     if (ap.getDate().isEqual(LocalDate.now())){
-                        service.scheduleTodayAppointment(ap);
+                        apFlag = service.scheduleTodayAppointment(ap);
                     }else{
                         apFlag = service.scheduleFutureAppointment(ap);
                     }
