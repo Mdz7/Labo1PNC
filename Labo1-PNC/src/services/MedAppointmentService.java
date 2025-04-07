@@ -16,7 +16,7 @@ public class MedAppointmentService {
 
     private final List<MedAppointment> appointmentList = new ArrayList<>();
 
-    public void scheduleTodayAppointment(MedAppointment ap) {
+    public boolean scheduleTodayAppointment(MedAppointment ap) {
 
         if (appointmentList.isEmpty() || appointmentList.stream().noneMatch(
                 _ap -> _ap.getDate().equals(today))) {
@@ -24,11 +24,17 @@ public class MedAppointmentService {
             ap.setTime(LocalTime.of(8,0));
             appointmentList.add(ap);
             appointmentList.sort(Comparator.comparing(MedAppointment::getDate).thenComparing(MedAppointment::getTime));
+            return true;
+        }
+
+        if(getAppointmentListByDate(ap.getDate()).getLast().getTime().isAfter(endTime)){
+            return false;
         }else{
             LocalTime lastTime = getAppointmentListByDate(ap.getDate()).getLast().getTime();
             ap.setTime(lastTime.plusHours(1));
             appointmentList.add(ap);
             appointmentList.sort(Comparator.comparing(MedAppointment::getDate).thenComparing(MedAppointment::getTime));
+            return true;
         }
     }
 
