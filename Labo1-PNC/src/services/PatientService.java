@@ -7,12 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PatientService {
-    private static final List<Patient> patientList = new ArrayList<>();
+    private final List<Patient> patientList = new ArrayList<>();
+    private static int childID = 0;
 
     public void addPatient(Patient patient) {
         int age = calcAge(patient.getBirthDate());
         if (age < 18) {
-            patient.setDUI("000000000");
+            patient.setDUI("00000000-0:"+ childID++);
         }
 
         patientList.add(patient);

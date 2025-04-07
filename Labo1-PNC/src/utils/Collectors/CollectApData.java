@@ -24,7 +24,7 @@ public class CollectApData extends CollectData {
         ap.setPtDui(sc.nextLine());
         ap.setPtName(pt.getPatientById(ap.getPtDui()).getFirstName());
 
-        System.out.print("Ingresa fecha: ");
+        System.out.print("Ingresa fecha (dd/mm/yyyy): ");
         ap.setDate(LocalDate.parse(sc.nextLine(), formatter.setDateFormat()));
         if (!(ap.getDate().isEqual(LocalDate.now()))) {
             System.out.print("Ingresa hora: ");
